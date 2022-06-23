@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>[Ex. 5 | Sem. 7]</title>
+
+    <!-- Com lógica de: https://stackoverflow.com/questions/14853779/adding-input-elements-dynamically-to-form -->
+
+    </head>
+    <body>
+
+    <h1>Exercício 5 - Semana 7</h1>
+
+    <p>Crie uma página web na qual o usuário informe 
+        a quantidade de alunos e a nota de cada aluno 
+        na prova e no trabalho. Quando o ususário finalizar 
+        o fornecimento de todas as informações e solicitar 
+        o cálculo, mostre:
+    </p>
+
+    <li> a média de cada aluno, calculada considerando peso 2 para a prova e 3 para o trabalho; </li>
+    <li> a média geral, considerando todos os alunos; </li>
+    <li> a média artiméticas das notas de prova; </li>
+    <li> a média artiméticas das notas de trabalho; </li>
+    <li> a menor e a maior notas de prova; </li>
+    <li> a menor e a maior notas de trabalho. </li>
+        
+    <p> Obs: note que a quantidade de campos para inserção 
+        das notas de cada aluno depende da quantidade de alunos 
+        informada. </p>
+
+        <label for="fname">Informe a quantidade de alunos: </label>
+        <input type="number" id="numero-alunos" name="fname"> 
+        <button onclick="criaCampos()">Gerar formulário de cadastro</button> <br> <br>
+
+        <button onclick="calculaTotal()">Calcular total</button>
+
+        <p id="total"></p>
+
+        <div id="container-campos"/> </div>
+
+        <div id="container-resultado"/> </div>
+
+        <script type="text/javascript">
+
+            function criaCampos(){
+                // Generate a dynamic numero_alunos of inputs
+                var numero_alunos = document.getElementById("numero-alunos").value;
+                // Get the element where the inputs will be added to
+                var container_campos = document.getElementById("container-campos");
+                // Remove every children it had before
+                while (container_campos.hasChildNodes()) {
+                    container_campos.removeChild(container_campos.lastChild);
+                }
+
+                for (let i = 0; i < numero_alunos; i++){
+                    // Append a node with a random text
+                    container_campos.appendChild(document.createTextNode("Nota de prova do aluno " + (i+1) + ": "));
+                    // Create an <input> element, set its type and name attributes
+                    var nota_prova = document.createElement("input");
+                    nota_prova.type = "text";
+                    nota_prova.id = "nota-prova" + i;
+                    container_campos.appendChild(nota_prova);
+
+                    container_campos.appendChild(document.createTextNode("Nota de trabalho do aluno " + (i+1) + ": "));
+                    // Create an <input> element, set its type and name attributes
+                    var nota_trabalho = document.createElement("input");
+                    nota_trabalho.type = "text";
+                    nota_trabalho.id = "nota-trabalho" + i;
+                    container_campos.appendChild(nota_trabalho);
+
+                    // Append a line break 
+                    container_campos.appendChild(document.createElement("br"));
+                    container_campos.appendChild(document.createElement("br"));
+
+                }
+            }
+
+            function calculaTotal(){
+
+                var numero_alunos = document.getElementById("numero-alunos").value;
+                var lista_notas_prova = [];
+                var lista_notas_trabalho = [];
+
+                for (let i = 0; i < numero_alunos; i++){
+                    lista_notas_prova.push(parseFloat((document.getElementById("nota-prova" + i).value)));
+                    lista_notas_trabalho.push(parseFloat(document.getElementById("nota-trabalho" + i).value));
+                }
+
+                console.log("Lista notas prova: " + lista_notas_prova);
+                console.log("Lista notas prova: " + lista_notas_trabalho);
+
+                var container_resultado = document.getElementById("container-resultado");
+
+                container_resultado.appendChild(document.createTextNode("MÉDIAS"));
+
+                container_resultado.appendChild(document.createElement("br"));
+                container_resultado.appendChild(document.createElement("br"));
+
+                var lista_media_alunos = [];
+                for (let i = 0; i < numero_alunos; i++){
+                    var nota_prova_individual = lista_notas_prova[i];
+                    var nota_trabalho_individual = lista_notas_trabalho[i];
+
+                    var media_aluno = ((nota_prova_individual*2)+(nota_trabalho_individual*3))/5;
+                    lista_media_alunos.push(media_aluno);
+
+                    container_resultado.appendChild(document.createTextNode("Média do aluno " + (i+1) + ": " + media_aluno));
+                    container_resultado.appendChild(document.createElement("br"));
+                }
+
+                function mediaAritimetica(lista_notas, quantidade_alunos){
+                    var soma_notas = 0;
+                    for (let i = 0; i < quantidade_alunos; i++){
+                        soma_notas += parseFloat(lista_notas[i]);
+                    }
+                    var media_aritimetica = soma_notas/quantidade_alunos;
+
+                    return media_aritimetica;
+                }
+
+                var media_geral = mediaAritimetica(lista_media_alunos, numero_alunos);
+                var media_provas = mediaAritimetica(lista_notas_prova, numero_alunos);
+                var media_trabalhos = mediaAritimetica(lista_notas_trabalho, numero_alunos);
+
+                var menor_nota_prova = Math.min(...lista_notas_prova);
+                var maior_nota_prova = Math.max(...lista_notas_prova);
+
+                var menor_nota_trabalho = Math.min(...lista_notas_trabalho);
+                var maior_nota_trabalho = Math.max(...lista_notas_trabalho);
+
+                container_resultado.appendChild(document.createTextNode("Média geral: " + media_geral));
+                container_resultado.appendChild(document.createElement("br"));
+                container_resultado.appendChild(document.createElement("br"));
+
+                container_resultado.appendChild(document.createTextNode("Média aritimética das notas de prova: " + media_provas));
+                container_resultado.appendChild(document.createElement("br"));
+                container_resultado.appendChild(document.createTextNode("Média aritimética das notas de trabalho: " + media_trabalhos));
+                container_resultado.appendChild(document.createElement("br"));
+                container_resultado.appendChild(document.createElement("br"));
+
+                container_resultado.appendChild(document.createTextNode("MAIORES E MENORES NOTAS"));
+                container_resultado.appendChild(document.createElement("br"));
+                container_resultado.appendChild(document.createElement("br"));
+
+                container_resultado.appendChild(document.createTextNode("Menor nota de prova: " + menor_nota_prova));
+                container_resultado.appendChild(document.createElement("br"));
+                container_resultado.appendChild(document.createTextNode("Maior nota de prova: " + maior_nota_prova));
+                container_resultado.appendChild(document.createElement("br"));
+
+                container_resultado.appendChild(document.createElement("br"));
+
+                container_resultado.appendChild(document.createTextNode("Menor nota de trabalho: " + menor_nota_trabalho));
+                container_resultado.appendChild(document.createElement("br"));
+                container_resultado.appendChild(document.createTextNode("Maior nota de trabalho: " + maior_nota_trabalho));
+                container_resultado.appendChild(document.createElement("br"));
+
+            }
+
+        </script>
+
+    </body>
+</html>
+
+ 

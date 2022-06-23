@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>[Ex. 3 | Sem. 7]</title>
+    </head>
+    <body>
+
+    <h1>Exercício 3 - Semana 7</h1>
+
+    <p>Crie uma página web na qual o usuário 
+        deva escrever em um campo de texto o 
+        número de seu celular no formato "(XX)XXXXX-XXXX" 
+        e, caso o formato não seja respeitado, o usuário 
+        seja notificado.</p>
+
+        <label for="fname">Digite seu número de celular: </label>
+        <input type="text" id="numero-celular" name="fname"> 
+
+        <button onclick="verificaCelular()">Enviar</button>
+
+        <p id="mensagem"></p>
+
+        <script type="text/javascript">
+
+            function verificaCelular(){
+
+                var numero_celular = document.getElementById("numero-celular").value;
+                var numero_celular_itens = numero_celular.split("");
+
+                console.log(numero_celular[0]);
+                console.log(numero_celular[3]);
+                console.log(numero_celular[9]);
+                console.log(numero_celular.length);
+
+                if ((numero_celular[0] != "(") || (numero_celular[3] != ")") || (numero_celular[9] != "-") || (numero_celular.length != 14)) {
+                    document.getElementById("mensagem").innerHTML = "Este número de telefone deve estar no exato formato: '(XX)XXXXX-XXXX'.";
+                } else if ( (isNaN(numero_celular[1])) || (isNaN(numero_celular[2])) || (isNaN(numero_celular[4])) || (isNaN(numero_celular[5])) || (isNaN(numero_celular[6])) || (isNaN(numero_celular[7])) || (isNaN(numero_celular[8])) | (isNaN(numero_celular[10])) || (isNaN(numero_celular[11])) || (isNaN(numero_celular[12])) || (isNaN(numero_celular[13])) ){
+                    document.getElementById("mensagem").innerHTML = "Este número de telefone deve estar no exato formato: '(XX)XXXXX-XXXX'.";
+                } else {
+                    document.getElementById("mensagem").innerHTML = "Número de telefone submetido com sucesso!";
+                }
+
+            };
+
+        </script>
+
+    </body>
+</html>
+
+ 

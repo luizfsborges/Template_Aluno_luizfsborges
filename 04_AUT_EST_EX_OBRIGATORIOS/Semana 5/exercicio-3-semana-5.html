@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>[Ex. 3 | Sem. 5]</title>
+    <!-- Lógica do Bubble Sort: https://careerkarma.com/blog/javascript-bubble-sort/ -->
+    </head>
+    <body>
+
+    <h1>Exercício 3 - Semana 5</h1>
+
+    <p>Crie uma página web que permita ao usuário informar 
+        uma string correspondente a uma lista de números 
+        inteiros na qual os elementos são separados por uma 
+        vírgula e qual dos valores é o valor-foco. Quando o 
+        usuário indicar que deseja que o cálculo seja realizado 
+        (pressionar um botão), mostre a lista ordenada de forma 
+        crescente e qual a posição (primeiro, segundo, terceiro etc) 
+        do valor-foco. Use um algoritmo de ordenação (mesmo que 
+        um simples, como o Bubble Sort) para ordenar a lista e 
+        use a busca binária para identificar a posição do valor-foco.:</p>
+
+        <label for="fname">Digite uma lista de números inteiros separados por vírgula (,): </label>
+        <input type="text" id="lista" name="fname"> <br> 
+        <label for="fname">Digite o valor foco: </label>
+        <input type="number" id="valor-foco" name="fname"> <br> <br>
+
+        <button onclick="bubbleSort()">Realizar cálculo</button>
+
+        <p id="lista-ordenada"></p>
+        <p id="valor-foco"></p>
+
+        <script type="text/javascript">
+
+            function bubbleSort(){ 
+
+                var lista_input = (document.getElementById("lista").value).split(",");
+                var valor_foco = (document.getElementById("valor-foco").value);
+        
+                for (let i = 0; i < lista_input.length; i++) {
+                    for (let j = 0; j < lista_input.length; j++) {
+                        if (lista_input[j] > lista_input[j + 1]) {
+                            let temporario = lista_input[j];
+                            lista_input[j] = lista_input[j + 1];
+                            lista_input[j + 1] = temporario;
+                        }
+                    }
+                }
+                document.getElementById("lista-ordenada").innerHTML = "Lista ordenada por Bubble Sort: " + lista_input;
+
+                ///////////////////////////////////////////////////////////////////////
+                for(let k in lista_input){
+                    console.log(k);
+                    if(lista_input[k] == valor_foco){
+                        indice = k
+                        break
+                    } else {
+                        indice = -1;
+                        document.getElementById("valor-foco").innerHTML = "Valor foco não encontrado.";
+                    }
+                }
+                document.getElementById("valor-foco").innerHTML = "Lista ordenada por Bubble Sort: " + indice;
+                ///////////////////////////////////////////////////////////////////////
+                
+            };
+
+            
+
+
+
+        </script>
+
+    </body>
+</html>

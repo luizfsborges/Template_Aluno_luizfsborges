@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>[Ex. 2 | Sem. 7]</title>
+    </head>
+    <body>
+
+    <h1>Exercício 2 - Semana 7</h1>
+
+    <p>Crie uma página web na qual o usuário 
+        possa digitar dois valores, cada um em 
+        uma caixa de texto. Quando o usuário indicar 
+        que deseja que os valores sejam trocados 
+        (clicando no botão "Troca"), os valores 
+        contidos nas caixas de texto são trocados, 
+        ou seja, se na primeira caixa de texto estiver 
+        escrito "IPT" e na segunda, "Inteli", quando 
+        solicitada a troca, a primeira caixa de texto 
+        deve contar "IPT" e a segunda, "Inteli".</p>
+
+        <label for="fname">Digite o primeiro valor: </label>
+        <input type="text" id="primeiro-valor" name="fname"> <br> <br>
+        <label for="fname">Digite o segundo valor: </label>
+        <input type="text" id="segundo-valor" name="fname"> <br> <br>
+
+        <button onclick="trocaValores()">Troca</button>
+
+
+        <script type="text/javascript">
+
+            function trocaValores(){
+                var primeiro_valor = document.getElementById("primeiro-valor").value;
+                var segundo_valor = document.getElementById("segundo-valor").value;
+             
+                document.getElementById("primeiro-valor").value = segundo_valor;
+                document.getElementById("segundo-valor").value = primeiro_valor;
+
+            };
+
+        </script>
+
+    </body>
+</html>

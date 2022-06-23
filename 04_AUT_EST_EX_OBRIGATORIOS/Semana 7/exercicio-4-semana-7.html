@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>[Ex. 4 | Sem. 7]</title>
+    </head>
+    <body>
+
+    <h1>Exercício 4 - Semana 7</h1>
+
+    <p>Crie uma página web que permita ao usuário 
+        informar a quantidade de pessoas (número 
+        inteiro inteiro) e o período (Noturno ou 
+        Diurno) e, quando o usuário indicar que deseja 
+        que o cálculo seja realizado (pressionar um botão), 
+        mostre o total da compra de acordo com as condições abaixo:
+    </p>
+
+    
+    <li> Se vôo diurno, 200 por pessoa. Se mais do que 50 pessoas, desconto de 40% por pessoa. </li> <br>
+    <li> Se vôo noturno, 100 por pessoa. Se mais do que 50 pessoas, desconto de 20% por pessoa. </li> <br> 
+
+        <label for="fname">Informe a quantidade de pessoas: </label>
+        <input type="number" id="numero-pessoas" name="fname"> <br> <br>
+
+        <label for="fname">Informe o período do voo: </label>
+       
+        <select id="periodo">
+            <option value="diurno">Diurno</option>
+            <option value="noturno">Noturno</option> 
+        </select> <br> <br>
+
+        <button onclick="calculaTotal()">Calcular total</button>
+
+        <p id="total"></p>
+
+        <script type="text/javascript">
+
+            function calculaTotal(){
+
+                var numero_pessoas = document.getElementById("numero-pessoas").value;
+                var periodo_voo = document.getElementById("periodo").value;
+
+                if (periodo_voo == "diurno"){
+                    if (numero_pessoas > 50){
+                        var desconto_diurno = numero_pessoas * (200 - (200*(40/100)));
+                    } else {
+                        var desconto_diurno = numero_pessoas * 200;
+                    }
+
+                    document.getElementById("total").innerHTML = "O total a ser pago é de R$: " + desconto_diurno;
+
+                } else if (periodo_voo == "noturno"){
+                    if (numero_pessoas > 50){
+                        var desconto_noturno = numero_pessoas * (100 - (100*(20/100)));
+                    } else {
+                        var desconto_noturno = numero_pessoas * 100;
+                    }
+
+                    document.getElementById("total").innerHTML = "O total a ser pago é de: R$" + desconto_noturno;
+
+                }
+
+                
+
+            };
+
+        </script>
+
+    </body>
+</html>
+
+ 
