@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>[Ex. 1 | Sem. 1]</title>
+    </head>
+    <body>
+
+    <h1>Exercício 1 - Semana 1</h1>
+
+    <p>Um arremesso de um corpo, com velocidade inicial na direção vertical, 
+        recebe o nome de Lançamento Vertical. Sua trajetória é retilínea 
+        e vertical, e, devido à gravidade, o movimento classifica-se com 
+        Uniformemente Variado.</p>
+
+     <p>Sabendo-se que hmax é a altura máxima que um objeto consegue atingir, 
+        e que V0 é a velocidade inicial do lançamento, construa um formulário 
+        em HTML para receber o valor da velocidade inicial e um script em 
+        Javascript que calcule a altura máxima (em metros) e o tempo total 
+        de subida do objeto (em segundos), considerando a aceleração da 
+        gravidade g = 10 m/s2, e de acordo com a velocidade inicial inserida 
+        pelo usuário.</p>
+
+        <label for="fname">Insira a velocidade inicial (V0): </label>
+        <input type="number" id="velocidade-inicial" name="fname"> <a>[m]</a> <br> <br>
+
+        <button onclick="calculaAlturaTempo()">Calcular hmax</button>
+
+        <p id="resultado-altura-maxima"></p>
+
+        <p id="resultado-tempo-subida"></p>
+
+        <script type="text/javascript">
+
+            function calculaAlturaTempo(){
+                var velocidade_inicial = document.getElementById("velocidade-inicial").value;
+
+                var altura_maxima = (Math.pow(velocidade_inicial, 2))/(2*10)
+                var tempo_subida = (velocidade_inicial/10)
+  
+                document.getElementById("resultado-altura-maxima").innerHTML = "Altura máxima do objeto: "+ altura_maxima + " [m]";
+                document.getElementById("resultado-tempo-subida").innerHTML = "Tempo de subida do objeto: " + tempo_subida + " [s]";
+
+            };
+
+        </script>
+
+    </body>
+</html>
