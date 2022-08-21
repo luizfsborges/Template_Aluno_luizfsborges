@@ -1,86 +1,85 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <title>[Ex. 2 | Sem. 5]</title>
+        <title>[Ex. 2 | Sem. 5]</title>
     </head>
     <body>
 
-    <h1>Exercício 2 - Semana 5</h1>
+        <h1>Exercício 2 - Semana 5</h1>
 
-    <p>Crie uma página web que permita ao usuário 
-        informar o preço de um produto e, quando o 
-        usuário indicar que deseja que o cálculo 
-        seja realizado (pressionar um botão), apresente 
-        quais notas e quantas notas são necessárias para 
-        efetuar o pagamento da compra desse produto. 
-        Considere notas para os valores 1, 2, 5, 10, 
-        20, 50, 100 e que é desejável efetuar o pagamento 
-        com a menor quantidade possível de notas.</p>
+        <p>Crie uma página web que permita ao usuário 
+            informar o preço de um produto e, quando o 
+            usuário indicar que deseja que o cálculo 
+            seja realizado (pressionar um botão), apresente 
+            quais notas e quantas notas são necessárias para 
+            efetuar o pagamento da compra desse produto. 
+            Considere notas para os valores 1, 2, 5, 10, 
+            20, 50, 100 e que é desejável efetuar o pagamento 
+            com a menor quantidade possível de notas.</p>
 
-        <label for="fname">Digite o preço do produto: </label>
-        <input type="number" id="preco-produto" name="fname">
-        
-        <button onclick="calculaNotas()">Calcular quantidade de notas</button>
+            <label for="fname">Digite o preço do produto: </label>
+            <input type="number" id="preco-produto" name="fname">
+            
+            <button onclick="calculaNotas()">Calcular quantidade de notas</button>
 
-        <p id="numero-100"></p>
-        <p id="numero-50"></p>
-        <p id="numero-20"></p>
-        <p id="numero-10"></p>
-        <p id="numero-5"></p>
-        <p id="numero-2"></p>
-        <p id="numero-1"></p>
+            <p id="numero-100"></p>
+            <p id="numero-50"></p>
+            <p id="numero-20"></p>
+            <p id="numero-10"></p>
+            <p id="numero-5"></p>
+            <p id="numero-2"></p>
+            <p id="numero-1"></p>
 
-        <script type="text/javascript">
+            <script type="text/javascript">
 
-            function calculaNotas(){
-                
-                var preco_produto = Number(document.getElementById("preco-produto").value);
-                
-                var notas_100 = parseInt(preco_produto / 100);
-                var resto_100 = (preco_produto % 100);
-                if (notas_100 != 0){
-                    document.getElementById("numero-100").innerHTML = notas_100 + " nota(s) de R$100,00.";
-                }
+                function calculaNotas(){
+                    
+                    var preco_produto = Number(document.getElementById("preco-produto").value);
+                    
+                    var notas_100 = parseInt(preco_produto/100);
+                    var resto_100 = (preco_produto % 100);
+                    if (notas_100 != 0){
+                        document.getElementById("numero-100").innerHTML = notas_100 + " nota(s) de R$100,00.";
+                    }
 
-                var notas_50 = parseInt(resto_100  / 50);
-                var resto_50 = (resto_100 % 50);
-                if (notas_50 != 0){
-                    document.getElementById("numero-50").innerHTML = notas_50 + " nota(s) de R$50,00.";
-                }
+                    var notas_50 = parseInt(resto_100/50);
+                    var resto_50 = (resto_100 % 50);
+                    if (notas_50 != 0){
+                        document.getElementById("numero-50").innerHTML = notas_50 + " nota(s) de R$50,00.";
+                    }
 
-                var notas_20 = parseInt(resto_50  / 20);
-                var resto_20 = (resto_50 % 20);
-                if (notas_20 != 0){
-                    document.getElementById("numero-20").innerHTML = notas_20 + " nota(s) de R$20,00.";
-                }
+                    var notas_20 = parseInt(resto_50 /20);
+                    var resto_20 = (resto_50 % 20);
+                    if (notas_20 != 0){
+                        document.getElementById("numero-20").innerHTML = notas_20 + " nota(s) de R$20,00.";
+                    }
 
-                var notas_10 = parseInt(resto_20  / 10);
-                var resto_10 = (resto_20 % 10);
-                if (notas_10 != 0){
-                    document.getElementById("numero-10").innerHTML = notas_10 + " nota(s) de R$10,00.";
-                }
+                    var notas_10 = parseInt(resto_20/10);
+                    var resto_10 = (resto_20 % 10);
+                    if (notas_10 != 0){
+                        document.getElementById("numero-10").innerHTML = notas_10 + " nota(s) de R$10,00.";
+                    }
 
-                var notas_5 = parseInt(resto_10  / 5);
-                var resto_5 = (resto_10 % 5);
-                if (notas_5 != 0){
-                    document.getElementById("numero-5").innerHTML = notas_5 + " nota(s) de R$5,00.";
-                }
+                    var notas_5 = parseInt(resto_10/5);
+                    var resto_5 = (resto_10 % 5);
+                    if (notas_5 != 0){
+                        document.getElementById("numero-5").innerHTML = notas_5 + " nota(s) de R$5,00.";
+                    }
 
-                var notas_2 = parseInt(resto_5  / 2);
-                var resto_2 = (resto_5 % 2);
-                if (notas_2 != 0){
-                    document.getElementById("numero-2").innerHTML = notas_2 + " nota(s) de R$2,00.";
-                }
+                    var notas_2 = parseInt(resto_5/2);
+                    var resto_2 = (resto_5 % 2);
+                    if (notas_2 != 0){
+                        document.getElementById("numero-2").innerHTML = notas_2 + " nota(s) de R$2,00.";
+                    }
 
-                var notas_1 = parseInt(resto_2  / 1);
-                var resto_1 = (resto_2 % 1);
-                if (notas_1 != 0){
-                    document.getElementById("numero-1").innerHTML = notas_1 + " nota(s) de R$1,00.";
-                }
+                    var notas_1 = parseInt(resto_2/1);
+                    var resto_1 = (resto_2 % 1);
+                    if (notas_1 != 0){
+                        document.getElementById("numero-1").innerHTML = notas_1 + " nota(s) de R$1,00.";
+                    }
 
-            };
+                };
 
-        </script>
-
+            </script>
     </body>
 </html>

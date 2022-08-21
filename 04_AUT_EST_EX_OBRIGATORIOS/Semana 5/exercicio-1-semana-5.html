@@ -1,92 +1,91 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <title>[Ex. 1 | Sem. 5]</title>
+        <title>[Ex. 1 | Sem. 5]</title>
     </head>
     <body>
+        
+        <h1>Exercício 1 - Semana 5</h1>
 
-    <h1>Exercício 1 - Semana 5</h1>
+        <p>Crie uma página web que permita ao usuário informar 
+            dois números, qual operação deseja realizar com esses 
+            valores (entre +, -, *, /, // e %) e, quando o usuário 
+            indicar que deseja que o cálculo seja realizado 
+            (pressionar um botão), mostre o resultado da operação. 
+            Por exemplo: se o usuário digitar 7 e 5, a saída deverá ser:</p>
 
-    <p>Crie uma página web que permita ao usuário informar 
-        dois números, qual operação deseja realizar com esses 
-        valores (entre +, -, *, /, // e %) e, quando o usuário 
-        indicar que deseja que o cálculo seja realizado 
-        (pressionar um botão), mostre o resultado da operação. 
-        Por exemplo: se o usuário digitar 7 e 5, a saída deverá ser:</p>
+            <li> a. 7 + 5 = 12 </li>
+            <li> b. 7 - 5 = 2 </li>
+            <li> c. 7 * 5 = 35 </li>
+            <li> d. 7 / 5 = 1.40 </li>
+            <li> e. 7 // 5 = 1 </li>
+            <li> f. 7 % 5 = 2 </li> <br>
 
-        <li> a. 7 + 5 = 12 </li>
-        <li> b. 7 - 5 = 2 </li>
-        <li> c. 7 * 5 = 35 </li>
-        <li> d. 7 / 5 = 1.40 </li>
-        <li> e. 7 // 5 = 1 </li>
-        <li> f. 7 % 5 = 2 </li> <br>
+            <label for="fname">Digite o primeiro valor: </label>
+            <input type="number" id="primeiro-valor" name="fname"> <br> <br>
+            <label for="fname">Digite o segundo valor: </label>
+            <input type="number" id="segundo-valor" name="fname"> <br> <br>
 
-        <label for="fname">Digite o primeiro valor: </label>
-        <input type="number" id="primeiro-valor" name="fname"> <br>
-        <label for="fname">Digite o segundo valor: </label>
-        <input type="number" id="segundo-valor" name="fname"> <br> <br>
+            <button onclick="soma()">+</button>
+            <button onclick="subtracao()">-</button>
+            <button onclick="multiplicacao()">*</button>
+            <button onclick="divisao()">/</button>
+            <button onclick="restoDivisao()">%</button>
 
-        <button onclick="soma()">+</button>
-        <button onclick="subtracao()">-</button>
-        <button onclick="multiplicacao()">*</button>
-        <button onclick="divisao()">/</button>
-        <button onclick="restoDivisao()">%</button>
+            <p id="resultado"></p>
 
-        <p id="resultado"></p>
+            <script type="text/javascript">
 
-        <script type="text/javascript">
+                function soma(){
+                    
+                    var primeiro_valor = parseFloat(document.getElementById("primeiro-valor").value);
+                    var segundo_valor = parseFloat(document.getElementById("segundo-valor").value);
 
-            function soma(){
+                    var resultado_soma = primeiro_valor + segundo_valor;
+
+                    document.getElementById("resultado").innerHTML = "Resultado da soma: " + resultado_soma;
+                };
+
+                function subtracao(){
+                    
+                    var primeiro_valor = parseFloat(document.getElementById("primeiro-valor").value);
+                    var segundo_valor = parseFloat(document.getElementById("segundo-valor").value);
+
+                    var resultado_subtracao = primeiro_valor - segundo_valor;
+
+                    document.getElementById("resultado").innerHTML = "Resultado da subtracao: " + resultado_subtracao;
+                };
                 
-                var primeiro_valor = parseFloat(document.getElementById("primeiro-valor").value);
-                var segundo_valor = parseFloat(document.getElementById("segundo-valor").value);
+                function multiplicacao(){
+                    
+                    var primeiro_valor = parseFloat(document.getElementById("primeiro-valor").value);
+                    var segundo_valor = parseFloat(document.getElementById("segundo-valor").value);
 
-                var resultado_soma = primeiro_valor + segundo_valor;
+                    var resultado_multiplicacao = primeiro_valor * segundo_valor;
 
-                document.getElementById("resultado").innerHTML = "Resultado da soma: " + resultado_soma;
-            };
+                    document.getElementById("resultado").innerHTML = "Resultado da multiplicação: " + resultado_multiplicacao;
+                };
 
-            function subtracao(){
-                
-                var primeiro_valor = parseFloat(document.getElementById("primeiro-valor").value);
-                var segundo_valor = parseFloat(document.getElementById("segundo-valor").value);
+                function divisao(){
+                    
+                    var primeiro_valor = parseFloat(document.getElementById("primeiro-valor").value);
+                    var segundo_valor = parseFloat(document.getElementById("segundo-valor").value);
 
-                var resultado_subtracao = primeiro_valor - segundo_valor;
+                    var resultado_divisao = primeiro_valor / segundo_valor;
 
-                document.getElementById("resultado").innerHTML = "Resultado da subtracao: " + resultado_subtracao;
-            };
-            
-            function multiplicacao(){
-                
-                var primeiro_valor = parseFloat(document.getElementById("primeiro-valor").value);
-                var segundo_valor = parseFloat(document.getElementById("segundo-valor").value);
+                    document.getElementById("resultado").innerHTML = "Resultado da divisão: " + resultado_divisao;
+                };
 
-                var resultado_multiplicacao = primeiro_valor * segundo_valor;
+                function restoDivisao(){
+                    
+                    var primeiro_valor = parseFloat(document.getElementById("primeiro-valor").value);
+                    var segundo_valor = parseFloat(document.getElementById("segundo-valor").value);
 
-                document.getElementById("resultado").innerHTML = "Resultado da multiplicação: " + resultado_multiplicacao;
-            };
+                    var resultado_resto_divisao = primeiro_valor % segundo_valor;
 
-            function divisao(){
-                
-                var primeiro_valor = parseFloat(document.getElementById("primeiro-valor").value);
-                var segundo_valor = parseFloat(document.getElementById("segundo-valor").value);
+                    document.getElementById("resultado").innerHTML = "Resto da divisão: " + resultado_resto_divisao;
+                };
 
-                var resultado_divisao = primeiro_valor / segundo_valor;
-
-                document.getElementById("resultado").innerHTML = "Resultado da divisão: " + resultado_divisao;
-            };
-
-            function restoDivisao(){
-                
-                var primeiro_valor = parseFloat(document.getElementById("primeiro-valor").value);
-                var segundo_valor = parseFloat(document.getElementById("segundo-valor").value);
-
-                var resultado_resto_divisao = primeiro_valor % segundo_valor;
-
-                document.getElementById("resultado").innerHTML = "Resto da divisão: " + resultado_resto_divisao;
-            };
-
-        </script>
-
+            </script>
     </body>
 </html>

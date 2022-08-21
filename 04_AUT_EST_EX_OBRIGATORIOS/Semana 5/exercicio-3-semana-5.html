@@ -1,73 +1,87 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <title>[Ex. 3 | Sem. 5]</title>
-    <!-- Lógica do Bubble Sort: https://careerkarma.com/blog/javascript-bubble-sort/ -->
+        <title>[Ex. 3 | Sem. 5]</title>
+        <!-- Lógica do Bubble Sort que empreguei: https://careerkarma.com/blog/javascript-bubble-sort/ -->
     </head>
     <body>
 
-    <h1>Exercício 3 - Semana 5</h1>
+        <h1>Exercício 3 - Semana 5</h1>
 
-    <p>Crie uma página web que permita ao usuário informar 
-        uma string correspondente a uma lista de números 
-        inteiros na qual os elementos são separados por uma 
-        vírgula e qual dos valores é o valor-foco. Quando o 
-        usuário indicar que deseja que o cálculo seja realizado 
-        (pressionar um botão), mostre a lista ordenada de forma 
-        crescente e qual a posição (primeiro, segundo, terceiro etc) 
-        do valor-foco. Use um algoritmo de ordenação (mesmo que 
-        um simples, como o Bubble Sort) para ordenar a lista e 
-        use a busca binária para identificar a posição do valor-foco.:</p>
+        <p>Crie uma página web que permita ao usuário informar 
+            uma string correspondente a uma lista de números 
+            inteiros na qual os elementos são separados por uma 
+            vírgula e qual dos valores é o valor-foco. Quando o 
+            usuário indicar que deseja que o cálculo seja realizado 
+            (pressionar um botão), mostre a lista ordenada de forma 
+            crescente e qual a posição (primeiro, segundo, terceiro etc) 
+            do valor-foco. Use um algoritmo de ordenação (mesmo que 
+            um simples, como o Bubble Sort) para ordenar a lista e 
+            use a busca binária para identificar a posição do valor-foco.:</p>
 
-        <label for="fname">Digite uma lista de números inteiros separados por vírgula (,): </label>
-        <input type="text" id="lista" name="fname"> <br> 
-        <label for="fname">Digite o valor foco: </label>
-        <input type="number" id="valor-foco" name="fname"> <br> <br>
+            <label for="fname">Digite uma lista de números inteiros separados por vírgula (,): </label>
+            <input type="text" id="lista" name="fname"> <br> <br>
+            <label for="fname">Digite o valor foco: </label>
+            <input type="number" id="valor-foco" name="fname"> <br> <br>
 
-        <button onclick="bubbleSort()">Realizar cálculo</button>
+            <button onclick="bubbleSort()">Realizar cálculo</button>
 
-        <p id="lista-ordenada"></p>
-        <p id="valor-foco"></p>
+            <p id="lista-ordenada"></p>
+            <p id="posicao-valor-foco"></p>
 
-        <script type="text/javascript">
+            <script type="text/javascript">
 
-            function bubbleSort(){ 
+                function binarySearch(lista_ordenada){
 
-                var lista_input = (document.getElementById("lista").value).split(",");
-                var valor_foco = (document.getElementById("valor-foco").value);
-        
-                for (let i = 0; i < lista_input.length; i++) {
-                    for (let j = 0; j < lista_input.length; j++) {
-                        if (lista_input[j] > lista_input[j + 1]) {
-                            let temporario = lista_input[j];
-                            lista_input[j] = lista_input[j + 1];
-                            lista_input[j + 1] = temporario;
+                    var valor_foco = document.getElementById("valor-foco").value;
+                    var tamanho_maximo = lista_ordenada.length - 1;
+                    var tamanho_minimo = 0;
+                    var meio = 0;
+                    var encontrou = false;
+
+                    while(tamanho_minimo <= tamanho_maximo){
+                        
+                        meio = Math.floor((tamanho_minimo + tamanho_maximo)/2);
+
+                        if (lista_ordenada[meio] == valor_foco){
+                            document.getElementById("posicao-valor-foco").textContent = "Valor foco na " + (meio + 1) + "ª posição." 
+                            encontrou = true;
+                            return // Não funciona sem o return por que? O bubbleSort() funciona.
+                        }
+                        else if (lista_ordenada[meio] < valor_foco){
+                            tamanho_minimo = meio + 1;
+                        }
+                        else if (lista_ordenada[meio] > valor_foco){
+                            tamanho_maximo = meio - 1;
                         }
                     }
-                }
-                document.getElementById("lista-ordenada").innerHTML = "Lista ordenada por Bubble Sort: " + lista_input;
 
-                ///////////////////////////////////////////////////////////////////////
-                for(let k in lista_input){
-                    console.log(k);
-                    if(lista_input[k] == valor_foco){
-                        indice = k
-                        break
-                    } else {
-                        indice = -1;
-                        document.getElementById("valor-foco").innerHTML = "Valor foco não encontrado.";
+                    if (encontrou == false){
+                        document.getElementById("posicao-valor-foco").textContent = "Valor foco não encontrado."
+                        return
                     }
+
                 }
-                document.getElementById("valor-foco").innerHTML = "Lista ordenada por Bubble Sort: " + indice;
-                ///////////////////////////////////////////////////////////////////////
-                
-            };
 
-            
+                function bubbleSort(){ 
 
+                    var lista_input = (document.getElementById("lista").value).split(",");
+                    var valor_foco = (document.getElementById("valor-foco").value);
 
+                    for (let i = 0; i < lista_input.length; i++) {
+                        for (let j = 0; j < lista_input.length; j++) {
+                            if (lista_input[j] > lista_input[j + 1]) {
+                                let temporario = lista_input[j];
+                                lista_input[j] = lista_input[j + 1];
+                                lista_input[j + 1] = temporario;
+                            }
+                        }
+                    }
 
-        </script>
+                    document.getElementById("lista-ordenada").innerHTML = "Lista ordenada por Bubble Sort: " + lista_input;
+                    binarySearch(lista_input)
+                }
 
+            </script>
     </body>
 </html>
