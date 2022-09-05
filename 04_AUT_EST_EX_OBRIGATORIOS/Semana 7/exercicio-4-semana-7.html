@@ -1,35 +1,34 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <title>[Ex. 4 | Sem. 7]</title>
+    <title> [Ex. 4 | Sem. 7] </title>
     </head>
     <body>
 
-    <h1>Exercício 4 - Semana 7</h1>
+    <h1> Exercício 4 - Semana 7 </h1>
 
-    <p>Crie uma página web que permita ao usuário 
+    <p> Crie uma página web que permita ao usuário 
         informar a quantidade de pessoas (número 
         inteiro inteiro) e o período (Noturno ou 
         Diurno) e, quando o usuário indicar que deseja 
         que o cálculo seja realizado (pressionar um botão), 
-        mostre o total da compra de acordo com as condições abaixo:
-    </p>
+        mostre o total da compra de acordo com as condições abaixo: </p>
 
     
     <li> Se vôo diurno, 200 por pessoa. Se mais do que 50 pessoas, desconto de 40% por pessoa. </li> <br>
     <li> Se vôo noturno, 100 por pessoa. Se mais do que 50 pessoas, desconto de 20% por pessoa. </li> <br> 
 
-        <label for="fname">Informe a quantidade de pessoas: </label>
+        <label for="fname"> Informe a quantidade de pessoas: </label>
         <input type="number" id="numero-pessoas" name="fname"> <br> <br>
 
-        <label for="fname">Informe o período do voo: </label>
+        <label for="fname"> Informe o período do voo: </label>
        
         <select id="periodo">
-            <option value="diurno">Diurno</option>
-            <option value="noturno">Noturno</option> 
+            <option value="diurno"> Diurno </option>
+            <option value="noturno"> Noturno </option> 
         </select> <br> <br>
 
-        <button onclick="calculaTotal()">Calcular total</button>
+        <button onclick="calculaTotal()"> Calcular total </button>
 
         <p id="total"></p>
 
@@ -59,8 +58,6 @@
                     document.getElementById("total").innerHTML = "O total a ser pago é de: R$" + desconto_noturno;
 
                 }
-
-                
 
             };
 

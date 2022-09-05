@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <title>[Ex. 1 | Sem. 7]</title>
+    <title> [Ex. 1 | Sem. 7] </title>
     </head>
     <body>
 
-    <h1>Exercício 1 - Semana 7</h1>
+    <h1> Exercício 1 - Semana 7 </h1>
 
-    <p>Crie uma página web na qual o usuário 
+    <p> Crie uma página web na qual o usuário 
         possa informar a quantidade de um produto 
         em um valor inteiro e, por meio de dois 
         botões, um que adiciona uma unidade e um 
         que subtraia uma unidade, o valor do campo 
-        da quantidade possa ser manipulado.</p>
+        da quantidade possa ser manipulado. </p>
 
-        <label for="fname">Digite a quantidade do produto: </label>
+        <label for="fname"> Digite a quantidade do produto: </label>
         <input type="number" id="input-numero" name="fname">
         <button onclick="aumentaProduto()">+</button>
         <button onclick="diminuiProduto()">-</button>
@@ -29,7 +29,9 @@
 
             function diminuiProduto(){
                 var quantidade_produto = parseInt(document.getElementById("input-numero").value);
-                quantidade_produto -= 1;
+                if (quantidade_produto = 0){
+                    quantidade_produto = 0;
+                } 
                 document.getElementById("input-numero").value = quantidade_produto;
             };
 
