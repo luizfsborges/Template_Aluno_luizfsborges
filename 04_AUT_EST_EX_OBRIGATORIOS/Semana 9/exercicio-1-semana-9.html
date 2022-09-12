@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <title>[Ex. 1 | Sem. 9]</title>
+    <title> [Ex. 1 | Sem. 9] </title>
     </head>
     <body>
 
-    <h1>Exercício 1 - Semana 9</h1>
+    <h1> Exercício 1 - Semana 9 </h1>
 
-    <p>Crie uma página web na qual o usuário informe 
+    <p> Crie uma página web na qual o usuário informe 
         um número inteiro de três dígitos e quando o 
         usuário indicar que deseja que o cálculo seja 
         realizado (pressionar um botão), seja exibido 
-        se o dígito da centena é par ou ímpar.</p>
+        se o dígito da centena é par ou ímpar. </p>
 
-        <label for="fname">Digite um número inteiro de três digitos:</label>
+        <label for="fname"> Digite um número inteiro de três digitos: </label>
         <input type="text" id="input-numero" name="fname">
-        <button onclick="calculaParImpar()">Calcular</button>
+        <button onclick="calculaParImpar()"> Calcular </button>
 
-        <p id="resultado"></p>
+        <p id="resultado"> </p>
 
         <script type="text/javascript">
+            
             function calculaParImpar(){
                 var numero = document.getElementById("input-numero").value;
                 var numero_lista  = numero.split("");
