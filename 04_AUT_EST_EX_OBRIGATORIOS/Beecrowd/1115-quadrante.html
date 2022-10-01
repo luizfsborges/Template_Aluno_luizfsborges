@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title> [Ex. 1115 | Beecrowd] </title>
+    </head>
+
+    <body onload="mostraCampos()">
+
+    <h1> Ex. 1115 | Beecrowd </h1>
+
+    <p> Escreva um programa para ler as coordenadas (X,Y) de uma quantidade indeterminada 
+        de pontos no sistema cartesiano. Para cada ponto escrever o quadrante a que ele 
+        pertence. O algoritmo será encerrado quando pelo menos uma de duas coordenadas for 
+        NULA (nesta situação sem escrever mensagem alguma). </p>
+
+        <div id="container-loop"/> </div>
+        
+        <button id="botao" onclick="calculaQuadrante()"> Inicar loop de cálculo </button> <br> <br>
+
+        <script type="text/javascript">
+
+            var container_loop = document.getElementById("container-loop");
+            var valor_x = ""
+            var valor_y = ""
+
+            function mostraCampos(){
+
+                container_loop.appendChild(document.createTextNode("Coordenada X: "));
+                var coordenada_x = document.createElement("input");
+                coordenada_x.type = "number";
+                coordenada_x.id = "coordenada-x";
+                container_loop.appendChild(coordenada_x);
+                container_loop.appendChild(document.createElement("br"));
+
+                container_loop.appendChild(document.createTextNode("Coordenada Y: "));
+                var coordenada_y = document.createElement("input");
+                coordenada_y.type = "number";
+                coordenada_y.id = "coordenada-y";
+                container_loop.appendChild(coordenada_y);
+                container_loop.appendChild(document.createElement("br"));
+                container_loop.appendChild(document.createElement("br"));
+
+            }
+
+            function calculaQuadrante(){
+
+                var lista_campos = document.getElementsByTagName("input");
+                var coordenada_x = parseInt(lista_campos[lista_campos.length - 2].value)
+                var coordenada_y = parseInt(lista_campos[lista_campos.length - 1].value)
+
+                console.log(coordenada_x);
+                console.log(coordenada_y);
+                
+                if (coordenada_x != 0 && coordenada_y != 0){
+
+                    if (coordenada_x > 0 && coordenada_y > 0){
+                        container_loop.appendChild(document.createTextNode("Primeiro quadrante"));
+                    } else if (coordenada_x < 0 && coordenada_y > 0){
+                        container_loop.appendChild(document.createTextNode("Segundo quarante"));
+                    } else if (coordenada_x < 0 && coordenada_y < 0){
+                        container_loop.appendChild(document.createTextNode("Terceiro quadrante"));
+                    } else if (coordenada_x > 0 && coordenada_y < 0){
+                        container_loop.appendChild(document.createTextNode("Quarto quadrante"));
+                    }
+
+                    container_loop.appendChild(document.createElement("br"));
+                    container_loop.appendChild(document.createElement("br"));
+
+                    mostraCampos()
+
+                } else {
+                    var botao = document.getElementById("botao");
+                    botao.remove();
+                    container_loop.appendChild(document.createTextNode("Fim do loop!"));
+                }
+
+            }
+
+        </script>
+
+    </body>
+</html>

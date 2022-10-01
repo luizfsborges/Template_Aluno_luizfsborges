@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title> [Ex. 1117 | Beecrowd] </title>
+    </head>
+    <body>
+
+    <h1> Ex. 1115 | Beecrowd </h1>
+
+    <p> Faça um programa que leia as notas referentes às duas avaliações de um 
+        aluno. Calcule e imprima a média semestral. Faça com que o algoritmo só 
+        aceite notas válidas (uma nota válida deve pertencer ao intervalo [0,10]). 
+        Cada nota deve ser validada separadamente. </p>
+
+        <label for="fname"> Avaliação 1: </label>
+        <input type="number" id="avaliacao-1" name="fname"> <br> <br>
+
+        <label for="fname"> Avaliação 2: </label>
+        <input type="number" id="avaliacao-2" name="fname"> <br> <br>
+
+        <button onclick="calculaMedia()"> Calcular média </button> <br> <br>
+
+        <p id="campo-resultado"></p>
+        <p id="status-1"></p>
+        <p id="status-2"></p>
+
+        <script type="text/javascript">
+
+            function calculaMedia(){
+
+                document.getElementById("campo-resultado").innerHTML = " ";
+                document.getElementById("status-1").innerHTML = " ";
+                document.getElementById("status-2").innerHTML = " ";
+
+                var nota_1 = parseInt(document.getElementById("avaliacao-1").value);
+                var nota_2 = parseInt(document.getElementById("avaliacao-2").value);
+
+                if (nota_1 >= 0 && nota_1 <= 10){
+                    nota_1_validada = nota_1;
+                } else {
+                    document.getElementById("status-1").innerHTML = "Nota 1 inválida";
+                }
+
+                if (nota_2 >= 0 && nota_2 <= 10){
+                    nota_2_validada = nota_2;        
+                } else {
+                    document.getElementById("status-2").innerHTML = "Nota 2 inválida";
+                }
+ 
+                if (typeof nota_1_validada == "number" && typeof nota_2_validada == "number"){ 
+
+                    document.getElementById("campo-resultado").innerHTML = "Média semestral: " + (nota_1_validada+nota_2_validada)/2;
+                    nota_1_validada = "";
+                    nota_2_validada = "";
+
+                } else {
+
+                    nota_1_validada = "";
+                    nota_2_validada = "";
+                    document.getElementById("campo-resultado").innerHTML = "";
+
+                }
+
+            };
+
+        </script>
+
+    </body>
+</html>

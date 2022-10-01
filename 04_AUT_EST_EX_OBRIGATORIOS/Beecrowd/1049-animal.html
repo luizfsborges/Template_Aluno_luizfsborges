@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title> [Ex. 1049 - Beecrowd] </title>
+    </head>
+    <body>
+
+    <h1> Exercício 1049 - Beecrowd </h1>
+
+    <p> Neste problema, você deverá ler 3 palavras que definem o tipo de animal possível 
+        segundo o esquema abaixo, da esquerda para a direita.  Em seguida conclua qual dos 
+        animais seguintes foi escolhido, através das três palavras fornecidas. </p>
+
+        <label for="fname"> vertebrado ou invertebrado? </label>
+        <input type="text" id="palavra-1" name="fname"> <br> <br>
+        <label for="fname"> ave, mamífero, inseto ou anelideo? </label>
+        <input type="text" id="palavra-2" name="fname"> <br> <br>
+        <label for="fname"> carnivoro, onivoro, herbivoro, hematofago? </label>
+        <input type="text" id="palavra-3" name="fname"> <br> <br>
+
+        <p id="animal-concluido"></p>
+
+        <button onclick="concluirAnimal()"> Concluir animal</button>
+
+        <script type="text/javascript">
+
+            function concluirAnimal(){
+                var palavra_1 = document.getElementById("palavra-1").value;
+                var palavra_2 = document.getElementById("palavra-2").value;
+                var palavra_3 = document.getElementById("palavra-3").value;
+
+                console.log(palavra_1);
+                console.log(palavra_3);
+                console.log(palavra_3);
+
+                if (palavra_1 == "vertebrado" && palavra_2 == "ave" && palavra_3 == "carnivoro"){
+                    document.getElementById("animal-concluido").innerHTML = "aguia";
+                    console.log("HAAAAAAAAA")
+
+                } else if (palavra_1 == "vertebrado" && palavra_2 == "ave" && palavra_3 == "onivoro"){
+                    document.getElementById("animal-concluido").innerHTML = "pomba";
+
+                } else if (palavra_1 == "vertebrado" && palavra_2 == "mamifero" && palavra_3 == "onivoro"){
+                    document.getElementById("animal-concluido").innerHTML = "homem";
+
+                } else if (palavra_1 == "vertebrado" && palavra_2 == "mamifero" && palavra_3 == "herbivoro"){
+                    document.getElementById("animal-concluido").innerHTML = "vaca";
+
+                } else if (palavra_1 == "invertebrado" && palavra_2 == "inseto" && palavra_3 == "hematofago"){
+                    document.getElementById("animal-concluido").innerHTML = "pulga";
+
+                } else if (palavra_1 == "invertebrado" && palavra_2 == "inseto" && palavra_3 == "herbivoro"){
+                    document.getElementById("animal-concluido").innerHTML = "lagarta";
+
+                } else if (palavra_1 == "invertebrado" && palavra_2 == "anelideo" && palavra_3 == "hematofago"){
+                    document.getElementById("animal-concluido").innerHTML = "sanguessuga";
+
+                } else if (palavra_1 == "invertebrado" && palavra_2 == "anelideo" && palavra_3 == "onivoro"){
+                    document.getElementById("animal-concluido").innerHTML = "minhoca";
+                }
+
+            };
+
+        </script>
+
+    </body>
+</html>
